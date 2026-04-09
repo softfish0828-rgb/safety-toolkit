@@ -386,33 +386,10 @@ footer p{color:#94a3b8;font-size:.9rem;line-height:1.8}
   <div class="sec-hd">
     <div class="stag">📬 聯絡我們</div>
     <h2 class="stitle">立即開始</h2>
-    <p class="sdesc">留下您的聯絡方式，我們將在1個工作日內回覆您。</p>
+    <p class="sdesc">填寫表單，我們將在1個工作日內回覆您。</p>
   </div>
-  <div class="contact-in">
-    <form class="form-grid" onsubmit="handleSubmit(event)">
-      <div class="fg"><label>姓名 *</label><input type="text" placeholder="您的姓名" required></div>
-      <div class="fg"><label>公司</label><input type="text" placeholder="公司名稱（選填）"></div>
-      <div class="fg"><label>電話 *</label><input type="tel" placeholder="聯絡電話" required></div>
-      <div class="fg"><label>電郵</label><input type="email" placeholder="電郵地址（選填）"></div>
-      <div class="fg full">
-        <label>感興趣的產品/服務</label>
-        <select>
-          <option value="">請選擇...</option>
-          <option>安全管理表格套件（MOP 299）</option>
-          <option>安全培訓PPT模板（MOP 129起）</option>
-          <option>全套尊享套餐（MOP 799）</option>
-          <option>文字安全諮詢（MOP 200/次）</option>
-          <option>語音安全諮詢（MOP 400/次）</option>
-          <option>定制安全文件（MOP 1,500起）</option>
-          <option>現場安全審查（MOP 2,500）</option>
-          <option>安全培訓服務（MOP 2,500/場）</option>
-        </select>
-      </div>
-      <div class="fg full"><label>備註</label><textarea placeholder="請描述您的需求或問題..."></textarea></div>
-      <div class="form-btn">
-        <button type="submit" class="btn btn-p" style="padding:1rem 3rem;font-size:1rem">提交諮詢 →</button>
-      </div>
-    </form>
+  <div class="contact-in" style="max-width:700px;margin:0 auto">
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfLBEQjGDzgRtFBP99wzggfhsj9DqU2-Rji0hI3uRIVylKJVQ/viewform?embedded=true" width="100%" height="902" frameborder="0" marginheight="0" marginwidth="0" style="border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,.1)">正在載入…</iframe>
   </div>
 </section>
 
@@ -451,11 +428,6 @@ footer p{color:#94a3b8;font-size:.9rem;line-height:1.8}
 </footer>
 
 <script>
-function handleSubmit(e){
-  e.preventDefault();
-  alert('感謝您的諮詢！我們將在1個工作日內通過電話聯絡您。');
-  e.target.reset();
-}
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{
