@@ -18,442 +18,340 @@ nav{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,.95);backdro
 .nav-ul{display:flex;gap:1.8rem;list-style:none}
 .nav-ul a{text-decoration:none;color:var(--gr);font-weight:500;transition:color .25s}
 .nav-ul a:hover{color:var(--p)}
-.nav-btn{background:var(--p);color:#fff!important;padding:.55rem 1.3rem;border-radius:8px;transition:all .25s}
-.nav-btn:hover{background:var(--pd)!important;transform:translateY(-2px)}
+.nav-cta{background:var(--p);color:#fff!important;padding:.5rem 1.2rem;border-radius:8px;transition:background .2s}
+.nav-cta:hover{background:var(--pd)}
 
 /* HERO */
-.hero{padding:8rem 2rem 5rem;background:linear-gradient(140deg,#f0f9ff 0%,#e0f2fe 55%,#fff7ed 100%);min-height:92vh;display:flex;align-items:center}
-.hero-in{max-width:1200px;margin:0 auto}
-.hero h1{font-size:2.8rem;font-weight:700;line-height:1.25;margin-bottom:1.2rem;text-align:center}
-.hero h1 em{font-style:normal;color:var(--p)}
-.hero-sub{font-size:1.1rem;color:var(--gr);text-align:center;max-width:680px;margin:0 auto 2.5rem}
-
-/* Service cards */
-.svc-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem}
-.svc-card{background:#fff;border-radius:20px;padding:2rem;text-align:center;box-shadow:0 8px 30px rgba(0,0,0,.07);transition:all .3s;border:2px solid transparent}
-.svc-card:hover{border-color:var(--p);transform:translateY(-6px);box-shadow:0 18px 40px rgba(26,95,122,.15)}
-.svc-ic{width:72px;height:72px;background:linear-gradient(135deg,var(--p),var(--a));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 1.3rem}
-.svc-card h3{font-size:1.3rem;margin-bottom:.7rem}
-.svc-card p{color:var(--gr);margin-bottom:1.3rem;font-size:.92rem;min-height:60px}
-.svc-price{font-size:1.35rem;font-weight:700;color:var(--p);margin-bottom:1rem}
-.svc-features{list-style:none;text-align:left;margin-bottom:1.5rem}
-.svc-features li{display:flex;align-items:center;gap:.5rem;font-size:.88rem;color:var(--gr);padding:.3rem 0}
-.svc-features li::before{content:"✓";color:var(--grn);font-weight:700}
-
-/* STATS */
-.stats-row{display:flex;justify-content:center;gap:4rem;margin-top:3rem}
-.stat{text-align:center}
-.stat-n{font-size:2.2rem;font-weight:700;color:var(--p)}
-.stat-l{font-size:.85rem;color:var(--gr)}
+.hero{padding:8rem 2rem 4rem;text-align:center;background:linear-gradient(160deg,#e0f2fe 0%,#fff 60%)}
+.hero h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;color:var(--dk);line-height:1.2;margin-bottom:.8rem}
+.hero h1 span{color:var(--p)}
+.hero p{font-size:1.15rem;color:var(--gr);max-width:600px;margin:0 auto 2.5rem}
+.hero-cards{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;max-width:900px;margin:0 auto}
+.hcard{background:#fff;border-radius:14px;padding:1.6rem 1.8rem;text-align:left;flex:1;min-width:240px;box-shadow:0 4px 20px rgba(0,0,0,.07);border:1px solid #e2e8f0;transition:transform .2s,box-shadow .2s}
+.hcard:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(0,0,0,.11)}
+.hcard-ic{font-size:1.8rem;margin-bottom:.8rem}
+.hcard h3{font-size:1.05rem;font-weight:700;margin-bottom:.4rem;color:var(--dk)}
+.hcard p{font-size:.85rem;color:var(--gr);margin-bottom:.8rem}
+.svc-price{font-size:1.4rem;font-weight:800;color:var(--p);margin-bottom:.6rem}
+.btn{display:inline-block;padding:.65rem 1.4rem;border-radius:8px;font-weight:600;font-size:.9rem;text-decoration:none;transition:all .2s}
+.btn-p{background:var(--p);color:#fff}
+.btn-p:hover{background:var(--pd)}
+.btn-o{background:#fff;color:var(--p);border:2px solid var(--p)}
+.btn-o:hover{background:var(--p);color:#fff}
 
 /* HOW IT WORKS */
-.hiw{padding:4rem 2rem;background:#fff}
-.hiw-in{max-width:900px;margin:0 auto;text-align:center}
-.hiw h2{font-size:1.8rem;margin-bottom:.8rem}
-.hiw-sub{color:var(--gr);margin-bottom:2.5rem}
-.steps{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap}
-.step{text-align:center;flex:1;min-width:200px}
-.step-num{width:48px;height:48px;background:var(--p);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:700;margin:0 auto .8rem}
-.step h4{font-size:1rem;margin-bottom:.4rem}
+.how{padding:4rem 2rem;text-align:center}
+.section-tag{display:inline-block;background:linear-gradient(135deg,var(--p),var(--a));color:#fff;font-size:.75rem;font-weight:700;letter-spacing:2px;padding:.35rem 1rem;border-radius:20px;text-transform:uppercase;margin-bottom:1rem}
+.section-title{font-size:2rem;font-weight:800;color:var(--dk);margin-bottom:2.5rem}
+.steps{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;max-width:900px;margin:0 auto}
+.step{flex:1;min-width:220px;background:#fff;border-radius:14px;padding:2rem 1.5rem;box-shadow:0 2px 12px rgba(0,0,0,.05);text-align:center}
+.step-num{width:52px;height:52px;background:linear-gradient(135deg,var(--p),var(--pd));color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;font-weight:800;margin:0 auto 1rem}
+.step h3{font-size:1.05rem;font-weight:700;margin-bottom:.4rem}
 .step p{font-size:.85rem;color:var(--gr)}
 
+/* SERVICES */
+.services{padding:5rem 2rem;background:#fff}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;max-width:1100px;margin:0 auto}
+.scard{border-radius:16px;padding:1.8rem;border:1.5px solid #e2e8f0;transition:box-shadow .2s;position:relative;overflow:hidden}
+.scard:hover{box-shadow:0 8px 30px rgba(0,0,0,.09)}
+.scard-ic{font-size:2rem;margin-bottom:.8rem}
+.scard h3{font-size:1.05rem;font-weight:700;margin-bottom:.5rem;color:var(--dk)}
+.scard p{font-size:.85rem;color:var(--gr);margin-bottom:1rem}
+.scard .price{font-size:1.6rem;font-weight:800;color:var(--p)}
+.scard .price small{font-size:.75rem;font-weight:400;color:var(--gr)}
+.scard-best{background:linear-gradient(135deg,#f0f9ff,#e0f2fe);border-color:#bae6fd}
+
+/* TALENT */
+.talent{padding:5rem 2rem;background:var(--lt)}
+.talent-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;max-width:900px;margin:0 auto}
+.tcard{background:#fff;border-radius:16px;padding:2.2rem;box-shadow:0 4px 20px rgba(0,0,0,.07)}
+.tcard h3{font-size:1.3rem;font-weight:700;margin-bottom:.6rem;color:var(--dk)}
+.tcard p{font-size:.88rem;color:var(--gr);margin-bottom:1.2rem}
+.talent-fee{font-size:2rem;font-weight:800;color:var(--p)}
+.talent-note{font-size:.78rem;color:var(--gr);margin-top:.3rem}
+.tcard-btn{margin-top:1.2rem;display:inline-block;padding:.65rem 1.6rem;background:var(--p);color:#fff;border-radius:8px;text-decoration:none;font-weight:600;font-size:.9rem}
+
 /* PRODUCTS */
-.sec{padding:5rem 2rem}
-.sec-hd{text-align:center;max-width:600px;margin:0 auto 3rem}
-.stag{display:inline-block;background:linear-gradient(135deg,rgba(26,95,122,.1),rgba(245,158,11,.1));color:var(--p);padding:.4rem 1rem;border-radius:50px;font-size:.82rem;font-weight:600;margin-bottom:.8rem}
-.stitle{font-size:2rem;font-weight:700;margin-bottom:.7rem}
-.sdesc{color:var(--gr);font-size:1rem}
-.grid-4{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem}
-.pcard{background:#fff;border:1.5px solid #e2e8f0;border-radius:16px;padding:1.6rem;text-align:center;transition:all .3s}
-.pcard:hover{border-color:var(--p);transform:translateY(-4px);box-shadow:0 12px 30px rgba(26,95,122,.12)}
-.pcard-ic{font-size:2.2rem;margin-bottom:1rem}
-.pcard h3{font-size:1.05rem;margin-bottom:.5rem}
-.pcard p{color:var(--gr);font-size:.82rem;margin-bottom:.9rem;min-height:36px}
-.pcard .price{font-size:1.25rem;font-weight:700;color:var(--p)}
-.pcard small{font-size:.8rem;color:var(--gr)}
+.products{padding:5rem 2rem;background:#fff}
+.prod-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;max-width:1000px;margin:0 auto}
+.prd{background:var(--lt);border-radius:14px;padding:1.5rem;border:1.5px solid #e2e8f0;text-align:center;transition:box-shadow .2s}
+.prd:hover{box-shadow:0 6px 20px rgba(0,0,0,.08)}
+.prd-ic{font-size:2rem;margin-bottom:.6rem}
+.prd h4{font-size:.95rem;font-weight:700;margin-bottom:.4rem}
+.prd p{font-size:.8rem;color:var(--gr);margin-bottom:.8rem}
+.prd .price{font-size:1.3rem;font-weight:800;color:var(--p)}
+.prd-bundle{background:linear-gradient(135deg,#fef3c7,#fde68a);border-color:#f59e0b}
+.bundle-label{font-size:.75rem;color:#92400e;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:.4rem}
+.prd-bundle h4{color:#92400e}
+.prd-bundle .price{color:#d97706;font-size:1.6rem}
 
-/* TALENT SECTION */
-.talent-sec{padding:5rem 2rem;background:linear-gradient(135deg,#f0f9ff,#e0f2fe)}
-.talent-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:2rem}
-.talent-card{background:#fff;border-radius:20px;padding:2.5rem;text-align:center;box-shadow:0 8px 30px rgba(0,0,0,.07)}
-.talent-ic{font-size:3.5rem;margin-bottom:1rem}
-.talent-card h3{font-size:1.4rem;margin-bottom:.6rem;color:var(--p)}
-.talent-card p{color:var(--gr);margin-bottom:1.5rem}
-.talent-fee{font-size:1.8rem;font-weight:700;color:var(--a);margin-bottom:.5rem}
-.talent-fee small{font-size:.8rem;font-weight:400;color:var(--gr)}
-.talent-note{font-size:.85rem;color:var(--gr)}
-
-/* AI SECTION */
-.ai-sec{padding:5rem 2rem;background:var(--dk);color:#fff}
-.ai-in{max-width:900px;margin:0 auto;text-align:center}
-.ai-sec .stag{background:rgba(255,255,255,.15);color:#fff}
-.ai-sec .stitle{color:#fff}
-.ai-sec .sdesc{color:#94a3b8}
-.ai-powers{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.2rem;margin-top:2.5rem;text-align:left}
-.ai-power{background:rgba(255,255,255,.08);border-radius:14px;padding:1.4rem}
-.ai-power h4{font-size:1rem;margin-bottom:.5rem;color:var(--a)}
-.ai-power p{font-size:.88rem;color:#94a3b8;line-height:1.6}
+/* AI ASSISTANT */
+.ai{padding:5rem 2rem;background:linear-gradient(160deg,var(--p) 0%,var(--pd) 100%);text-align:center;color:#fff}
+.ai h2{font-size:2rem;font-weight:800;margin-bottom:1rem}
+.ai p{font-size:1rem;opacity:.9;max-width:550px;margin:0 auto 2rem}
+.ai-features{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;max-width:700px;margin:0 auto}
+.ai-feat{background:rgba(255,255,255,.15);border-radius:10px;padding:.8rem 1.4rem;font-size:.88rem;backdrop-filter:blur(8px)}
+.ai-btn{display:inline-block;margin-top:2rem;padding:.85rem 2.2rem;background:#fff;color:var(--p);border-radius:10px;font-weight:700;text-decoration:none;font-size:1rem}
 
 /* CTA */
-.cta{background:linear-gradient(135deg,var(--p),var(--pd));text-align:center;color:#fff;padding:5rem 2rem}
-.cta h2{font-size:2rem;margin-bottom:.8rem}
-.cta p{font-size:1.05rem;opacity:.9;margin-bottom:2rem}
-.cta-box{display:inline-block;background:rgba(255,255,255,.12);border-radius:16px;padding:2rem 3rem;margin-bottom:2rem}
-.cta-contacts{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-bottom:2rem}
-.cta-contact{background:rgba(255,255,255,.12);padding:.8rem 1.5rem;border-radius:10px;font-size:.95rem}
-.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.85rem 1.8rem;border-radius:10px;font-weight:600;text-decoration:none;transition:all .28s;font-size:.95rem;border:none;cursor:pointer}
-.btn-p{background:var(--a);color:#fff}
-.btn-p:hover{background:#d97706;transform:translateY(-3px);box-shadow:0 10px 26px rgba(245,158,11,.35)}
-.btn-wh{background:#fff;color:var(--p)}
-.btn-wh:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(0,0,0,.15)}
+.cta{padding:5rem 2rem;text-align:center}
+.cta-card{max-width:680px;margin:0 auto;background:linear-gradient(135deg,var(--p),var(--pd));border-radius:20px;padding:3rem;color:#fff}
+.cta h2{font-size:1.8rem;font-weight:800;margin-bottom:1rem}
+.cta p{font-size:1rem;opacity:.9;margin-bottom:2rem}
+.cta-contacts{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem}
+.cta-contact{background:rgba(255,255,255,.2);border-radius:10px;padding:.8rem 1.6rem;display:flex;align-items:center;gap:.6rem;font-size:1rem;backdrop-filter:blur(8px)}
+.cta-contact a{color:#fff;text-decoration:none}
+.cta-msg{background:rgba(255,255,255,.1);border-radius:10px;padding:1rem 1.5rem;font-size:.9rem;margin-top:1rem}
 
 /* FOOTER */
-footer{background:#0f172a;color:#fff;padding:3rem 2rem 1.5rem}
-.ft-in{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:2.5rem}
-footer h4{font-size:1rem;margin-bottom:.9rem}
-footer p,footer li{color:#94a3b8;font-size:.9rem;line-height:1.8}
-.ft-ul{list-style:none}
-.ft-ul li{margin-bottom:.4rem}
-.ft-ul a{color:#94a3b8;text-decoration:none;transition:color .25s}
-.ft-ul a:hover{color:#fff}
-.ft-bot{max-width:1100px;margin:2rem auto 0;padding-top:1.5rem;border-top:1px solid #1e293b;text-align:center;color:#64748b;font-size:.82rem}
+footer{background:var(--dk);color:rgba(255,255,255,.6);padding:2rem;text-align:center;font-size:.82rem}
+footer strong{color:#fff}
 
 /* RESPONSIVE */
-@media(max-width:900px){
-  .svc-grid,.talent-grid{grid-template-columns:1fr;max-width:500px}
-  .stats-row{gap:2rem}
-  .hero h1{font-size:2.2rem}
-  .ft-in{grid-template-columns:1fr}
-  .step{width:45%}
+@media(max-width:768px){
+.nav-ul{display:none}
+.hero{padding:7rem 1.5rem 3rem}
+.talent-grid{grid-template-columns:1fr}
+.cta{padding:3rem 1.5rem}
 }
-@media(max-width:600px){
-  .hero h1{font-size:1.8rem}
-  .stats-row{flex-wrap:wrap;gap:1.5rem}
-  .step{width:100%}
-  .cta-contacts{flex-direction:column;align-items:center}
-}
+
+/* SCROLL OFFSET FOR NAV */
+[id]{scroll-margin-top:80px}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <div class="nav-in">
-    <a href="#" class="logo">
-      <div class="logo-ic">🏗️</div>
-      澳門建築安全服務
-    </a>
-    <ul class="nav-ul">
-      <li><a href="#services">核心服務</a></li>
-      <li><a href="#products">模板產品</a></li>
-      <li><a href="#talent">人才介紹</a></li>
-      <li><a href="#ai">AI助手</a></li>
-      <li><a href="#contact" class="nav-btn">立即聯絡</a></li>
-    </ul>
-  </div>
+<div class="nav-in">
+  <a href="#" class="logo">
+    <div class="logo-ic">🏗️</div>
+    <span>澳門建築安全服務</span>
+  </a>
+  <ul class="nav-ul">
+    <li><a href="#services">服務項目</a></li>
+    <li><a href="#talent">人才介紹</a></li>
+    <li><a href="#products">模板下載</a></li>
+    <li><a href="#contact" class="nav-cta">立即委託</a></li>
+  </ul>
+</div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-in">
-    <div class="stag">🇲🇴 澳門建築安全一站式服務</div>
-    <h1>安全報告代製・人才對接<br><em>模板供應</em></h1>
-    <p class="hero-sub">專業為澳門建築業界提供：安全報告及培訓PPT代製、安全主任及督導員人才介紹、標準化管理表格供應，合乎第2/2023號法律及第32/2023號行政法規要求。</p>
-    
-    <div class="svc-grid">
-      <div class="svc-card">
-        <div class="svc-ic">📄</div>
-        <h3>報告・PPT代製</h3>
-        <p>安全巡查報告、風險評估報告、事故調查報告、安全培訓PPT專業代製</p>
-        <div class="svc-price">MOP 200 起</div>
-        <a href="#contact" class="btn btn-p">立即委託 →</a>
-      </div>
-      
-      <div class="svc-card" style="border-color:var(--a)">
-        <div class="svc-ic">👷</div>
-        <h3>安全人才介紹</h3>
-        <p>安全主任、安全督導員求職招聘對接，審核資歷、匹配需求</p>
-        <div class="svc-price">成功費 MOP 1,000 起</div>
-        <a href="#talent" class="btn btn-p">了解更多 →</a>
-      </div>
-      
-      <div class="svc-card">
-        <div class="svc-ic">📋</div>
-        <h3>表格模板供應</h3>
-        <p>安全巡查表、風險評估表、培訓記錄表等標準表格，低價發售</p>
-        <div class="svc-price">MOP 79 起</div>
-        <a href="#products" class="btn btn-p">查看模板 →</a>
-      </div>
+  <h1>澳門建築安全<span>一站式服務</span></h1>
+  <p>報告代製、人才介紹、表格模板——由具經驗的安全主任為您處理，省時省力，完全符合澳門法規要求</p>
+  <div class="hero-cards">
+    <div class="hcard">
+      <div class="hcard-ic">📋</div>
+      <h3>報告・PPT代製</h3>
+      <p>安全巡查報告、風險評估報告、事故調查報告、安全培訓PPT專業代製</p>
+      <div class="svc-price">MOP 200 起</div>
+      <a href="#contact" class="btn btn-p">立即委託 →</a>
     </div>
-    
-    <div class="stats-row">
-      <div class="stat"><div class="stat-n">200+</div><div class="stat-l">已完成報告</div></div>
-      <div class="stat"><div class="stat-n">50+</div><div class="stat-l">成功配對</div></div>
-      <div class="stat"><div class="stat-n">100%</div><div class="stat-l">法規合規</div></div>
+    <div class="hcard">
+      <div class="hcard-ic">👷</div>
+      <h3>人才介紹</h3>
+      <p>安全主任、安全督導員求職招聘對接，審核資歷、匹配需求</p>
+      <div class="svc-price">成功費 MOP 1,000 起</div>
+      <a href="#talent" class="btn btn-p">了解更多 →</a>
+    </div>
+    <div class="hcard">
+      <div class="hcard-ic">📊</div>
+      <h3>表格模板供應</h3>
+      <p>安全巡查表、風險評估表、培訓記錄表等標準表格，低價發售</p>
+      <div class="svc-price">MOP 79 起</div>
+      <a href="#products" class="btn btn-p">查看模板 →</a>
     </div>
   </div>
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="hiw">
-  <div class="hiw-in">
-    <h2>簡單3步，輕鬆完成</h2>
-    <p class="hiw-sub">無論是委託報告、還是招聘人才，我們都幫你簡化流程</p>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <h4>提出需求</h4>
-        <p>WhatsApp 或微信告訴我們您的需求</p>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <h4>報價確認</h4>
-        <p>我們即時報價，確認後立即安排</p>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <h4>交付完成</h4>
-        <p>按時交付，支持修改至滿意為止</p>
-      </div>
+<section class="how">
+  <div class="section-tag">HOW IT WORKS</div>
+  <h2 class="section-title">簡單3步，完成委託</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h3>提出需求</h3>
+      <p>WhatsApp 或微信告訴我們您的需求，附上相關資料</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h3>報價確認</h3>
+      <p>我們即時評估難度，提供固定價格，確認後立即開工</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h3>交付驗收</h3>
+      <p>一般 3 個工作天內完成初稿，滿意後交付，支持修改</p>
     </div>
   </div>
 </section>
 
-<!-- SERVICES DETAIL -->
-<section class="sec" id="services">
-  <div class="sec-hd">
-    <div class="stag">🔧 專業服務</div>
-    <h2 class="stitle">報告及PPT代製服務</h2>
-    <p class="sdesc">專業安全主任主理，符合澳門法規要求，可按要求修改至滿意為止</p>
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div style="text-align:center;margin-bottom:3rem">
+    <div class="section-tag">SERVICES</div>
+    <h2 class="section-title">報告・PPT代製服務</h2>
   </div>
-  
-  <div class="grid-4">
-    <div class="pcard">
-      <div class="pcard-ic">📊</div>
+  <div class="svc-grid">
+    <div class="scard">
+      <div class="scard-ic">🔍</div>
       <h3>安全巡查報告</h3>
       <p>地盤巡查記錄、隱患整改追蹤、符合第32/2023號規範</p>
       <div class="price">MOP 200 <small>/份</small></div>
     </div>
-    
-    <div class="pcard">
-      <div class="pcard-ic">⚠️</div>
+    <div class="scard scard-best">
+      <div class="scard-ic">⚠️</div>
       <h3>風險評估報告</h3>
       <p>JSA分析、工作危害評估、管控措施制定</p>
       <div class="price">MOP 500 <small>/份</small></div>
     </div>
-    
-    <div class="pcard">
-      <div class="pcard-ic">🚨</div>
+    <div class="scard">
+      <div class="scard-ic">🚨</div>
       <h3>事故調查報告</h3>
       <p>事件經過分析、根本原因探究、改善建議編寫</p>
       <div class="price">MOP 400 <small>/份</small></div>
     </div>
-    
-    <div class="pcard">
-      <div class="pcard-ic">🎓</div>
+    <div class="scard">
+      <div class="scard-ic">🎓</div>
       <h3>安全培訓PPT</h3>
       <p>入職培訓、專項培訓教材，可加公司品牌</p>
       <div class="price">MOP 300 <small>/套起</small></div>
     </div>
-    
-    <div class="pcard">
-      <div class="pcard-ic">📝</div>
+    <div class="scard">
+      <div class="scard-ic">📝</div>
       <h3>安全方案編寫</h3>
       <p>高空作業、密閉空間、吊裝作業等專項方案</p>
       <div class="price">MOP 800 <small>/份起</small></div>
     </div>
-    
-    <div class="pcard">
-      <div class="pcard-ic">📑</div>
+    <div class="scard">
+      <div class="scard-ic">📑</div>
       <h3>安全管理制度</h3>
       <p>安全手冊、安全程序文件、應急預案</p>
       <div class="price">MOP 1,000 <small>/套起</small></div>
     </div>
-    
-    <div class="pcard">
-      <div class="pcard-ic">✅</div>
+    <div class="scard scard-best">
+      <div class="scard-ic">✅</div>
       <h3>安全審核報告</h3>
       <p>地盤安全狀況評估、整改建議報告</p>
       <div class="price">MOP 3,000 <small>/份</small></div>
     </div>
-    
-    <div class="pcard">
-      <div class="pcard-ic">📋</div>
+    <div class="scard">
+      <div class="scard-ic">📄</div>
       <h3>其他文件</h3>
-      <p>客製化安全文件，按項目複雜度報價</p>
+      <p>安全標示圖、施工許可申請文件等，歡迎查詢</p>
       <div class="price">面議</div>
     </div>
   </div>
 </section>
 
-<!-- TALENT SECTION -->
-<section class="talent-sec" id="talent">
-  <div class="sec-hd">
-    <div class="stag">👷 人才對接</div>
-    <h2 class="stitle">安全人才介紹服務</h2>
-    <p class="sdesc">為建築企業對接合資格的安全主任及安全督導員，或幫助從業員找到合適工作</p>
+<!-- TALENT -->
+<section class="talent" id="talent">
+  <div style="text-align:center;margin-bottom:3rem">
+    <div class="section-tag">TALENT</div>
+    <h2 class="section-title">安全人才介紹</h2>
   </div>
-  
   <div class="talent-grid">
-    <div class="talent-card">
-      <div class="talent-ic">🪖</div>
-      <h3>安全主任介紹</h3>
+    <div class="tcard">
+      <h3>🪪 安全主任</h3>
       <p>持有相關資格，具豐富地盤管理經驗，熟悉澳門建築安全法規</p>
       <div class="talent-fee">MOP 2,000 <small>/人</small></div>
       <div class="talent-note">成功費・雙方均可委託</div>
-      <a href="#contact" class="btn btn-p" style="margin-top:1rem">委託招聘</a>
+      <a href="#contact" class="tcard-btn">查詢登記 →</a>
     </div>
-    
-    <div class="talent-card">
-      <div class="talent-ic">🦺</div>
-      <h3>安全督導員介紹</h3>
+    <div class="tcard">
+      <h3>🛡️ 安全督導員</h3>
       <p>具職安卡及相關培訓，熟悉現場安全督導工作</p>
       <div class="talent-fee">MOP 1,000 <small>/人</small></div>
       <div class="talent-note">成功費・雙方均可委託</div>
-      <a href="#contact" class="btn btn-p" style="margin-top:1rem">委託招聘</a>
+      <a href="#contact" class="tcard-btn">查詢登記 →</a>
     </div>
-  </div>
-  
-  <div style="text-align:center;margin-top:2.5rem">
-    <p style="color:var(--gr);margin-bottom:1rem">求職者也可登記，我們為你對接合適工作機會</p>
-    <a href="#contact" class="btn btn-wh" style="background:transparent;border:2px solid var(--p);color:var(--p)">登記求職 →</a>
   </div>
 </section>
 
 <!-- PRODUCTS -->
-<section class="sec" id="products">
-  <div class="sec-hd">
-    <div class="stag">📦 模板產品</div>
-    <h2 class="stitle">標準化管理表格</h2>
-    <p class="sdesc">符合澳門法規的標準表格，即買即用，省時省力</p>
+<section class="products" id="products">
+  <div style="text-align:center;margin-bottom:3rem">
+    <div class="section-tag">PRODUCTS</div>
+    <h2 class="section-title">表格模板供應</h2>
   </div>
-  
-  <div class="grid-4">
-    <div class="pcard">
-      <div class="pcard-ic">📝</div>
-      <h3>安全巡查日報表</h3>
+  <div class="prod-grid">
+    <div class="prd">
+      <div class="prd-ic">🔍</div>
+      <h4>安全巡查日報表</h4>
       <p>中英雙語版，符合第32/2023號規範</p>
       <div class="price">MOP 99</div>
     </div>
-    
-    <div class="pcard">
-      <div class="pcard-ic">⚡</div>
-      <h3>風險評估表（JSA）</h3>
+    <div class="prd">
+      <div class="prd-ic">⚡</div>
+      <h4>風險評估表（JSA）</h4>
       <p>工作安全分析表格，含填寫範例</p>
       <div class="price">MOP 99</div>
     </div>
-    
-    <div class="pcard">
-      <div class="pcard-ic">🔍</div>
-      <h3>事故調查報告表</h3>
+    <div class="prd">
+      <div class="prd-ic">🚨</div>
+      <h4>事故調查報告表</h4>
       <p>標準化事件調查格式</p>
       <div class="price">MOP 79</div>
     </div>
-    
-    <div class="pcard">
-      <div class="pcard-ic">📋</div>
-      <h3>安全培訓記錄表</h3>
+    <div class="prd">
+      <div class="prd-ic">🎓</div>
+      <h4>安全培訓出席記錄</h4>
       <p>培訓出席記錄，含簽名區</p>
       <div class="price">MOP 79</div>
     </div>
-  </div>
-  
-  <div style="text-align:center;margin-top:2rem">
-    <div style="background:#fff3cd;padding:1.2rem 2rem;border-radius:12px;display:inline-block;margin-bottom:1rem">
-      <div style="font-size:.9rem;color:#856404">💡 套餐優惠</div>
-      <div style="font-size:1.2rem;font-weight:700;color:#856404">全套4款表格 MOP 199（原價 MOP 356）</div>
+    <div class="prd prd-bundle">
+      <div class="bundle-label">最優惠</div>
+      <div class="prd-ic">💼</div>
+      <h4>全套4款套餐</h4>
+      <p>巡查表 + JSA + 事故報告 + 培訓記錄</p>
+      <div class="price">MOP 199</div>
+      <p style="font-size:.72rem;color:#92400e;margin-top:.4rem">相當於原價 MOP 356，省 MOP 157</p>
     </div>
   </div>
 </section>
 
-<!-- AI SECTION -->
-<section class="ai-sec" id="ai">
-  <div class="ai-in">
-    <div class="stag">🤖 AI 智能助手</div>
-    <h2 class="stitle">阿康 AI 安全主任</h2>
-    <p class="sdesc">24小時在線，解答澳門建築安全法例問題，協助判斷違規事項</p>
-    
-    <div class="ai-powers">
-      <div class="ai-power">
-        <h4>📜 法例諮詢</h4>
-        <p>解答第2/2023號法律、第32/2023號行政法規等澳門建築安全法例問題</p>
-      </div>
-      <div class="ai-power">
-        <h4>⚠️ 違規判斷</h4>
-        <p>根據法例協助判斷工地違規事項及對應罰則</p>
-      </div>
-      <div class="ai-power">
-        <h4>📝 文件生成</h4>
-        <p>生成安全報告、培訓PPT內容大綱、事故調查框架</p>
-      </div>
-      <div class="ai-power">
-        <h4>💬 快速回覆</h4>
-        <p>即時回覆 WhatsApp/微信諮詢，提高客戶服務效率</p>
-      </div>
-    </div>
-    
-    <div style="margin-top:2rem;padding:1.5rem;background:rgba(255,255,255,.08);border-radius:12px;display:inline-block">
-      <div style="font-size:.9rem;color:#94a3b8;margin-bottom:.3rem">立即使用 AI 助手</div>
-      <div style="font-size:1.1rem;color:#fff">WhatsApp 聯絡</div>
-    </div>
+<!-- AI ASSISTANT -->
+<section class="ai">
+  <div class="section-tag" style="background:rgba(255,255,255,.2)">AI ASSISTANT</div>
+  <h2>阿康 AI 安全助手</h2>
+  <p>任何澳門建築安全法例問題——第2/2023號法律、第32/2023號行政法規等——即時問答</p>
+  <div class="ai-features">
+    <div class="ai-feat">✅ 法例解讀</div>
+    <div class="ai-feat">✅ 違規判斷</div>
+    <div class="ai-feat">✅ 罰則查詢</div>
+    <div class="ai-feat">✅ 安全建議</div>
+    <div class="ai-feat">✅ 文件範本</div>
   </div>
+  <a href="https://workbuddy.example.com" class="ai-btn">立即使用阿康 →</a>
 </section>
 
-<!-- CTA -->
+<!-- CTA / CONTACT -->
 <section class="cta" id="contact">
-  <h2>立即開始使用我們的服務</h2>
-  <p>簡單几步，快速獲得專業協助</p>
-  
-  <div class="cta-box">
-    <div style="font-size:.9rem;opacity:.8;margin-bottom:.8rem">聯絡方式</div>
+  <div class="cta-card">
+    <div class="section-tag" style="background:rgba(255,255,255,.25)">CONTACT</div>
+    <h2>立即開始使用我們的服務</h2>
+    <p>直接聯絡，最快回覆。或填寫以下人才登記表：</p>
     <div class="cta-contacts">
-      <div class="cta-contact">📱 微信：damon828_leong</div>
-      <div class="cta-contact">💬 WhatsApp：+853 62862878</div>
+      <div class="cta-contact">📱 <a href="https://wa.me/85362862878" target="_blank">WhatsApp：+853 62862878</a></div>
+      <div class="cta-contact">💬 <a href="https://wa.me/85362862878" target="_blank">微信：damon828_leong</a></div>
     </div>
-  </div>
-  
-  <div class="cta-btns">
-    <a href="https://wa.me/85362862878" class="btn btn-wh" target="_blank">💬 WhatsApp 直接聯絡</a>
-    <a href="#products" class="btn btn-p">查看模板產品</a>
-  </div>
-  
-  <div style="margin-top:2rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.15)">
-    <div style="font-size:.95rem;opacity:.9">直接 WhatsApp 聯絡最快，我們將即時回覆</div>
+
+    <!-- 人才登記快速連結 -->
+    <div style="margin-top:1.5rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a href="docs/%E4%BA%BA%E6%89%8D%E7%99%BB%E8%A8%BA%E8%A1%A8_%E6%8B%9B%E8%81%98%E6%96%B9.html" style="background:rgba(255,255,255,.2);color:#fff;padding:.7rem 1.4rem;border-radius:8px;text-decoration:none;font-size:.88rem;font-weight:600;border:1px solid rgba(255,255,255,.3)">📋 我要招聘安全人才</a>
+      <a href="docs/%E4%BA%BA%E6%89%8D%E7%99%BB%E8%A8%BA%E8%A1%A8_%E6%B1%82%E8%81%8C%E6%96%B9.html" style="background:rgba(255,255,255,.2);color:#fff;padding:.7rem 1.4rem;border-radius:8px;text-decoration:none;font-size:.88rem;font-weight:600;border:1px solid rgba(255,255,255,.3)">👷 我要登記求職</a>
+    </div>
+
+    <div class="cta-msg">直接 WhatsApp 聯絡最快，我們將即時回覆</div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <div class="ft-in">
-    <div>
-      <h4>🏗️ 澳門建築安全服務</h4>
-      <p>專為澳門建築行業提供專業安全報告代製、人才對接及管理模板服務。全部服務由持牌安全主任主理，確保符合澳門法規要求。</p>
-    </div>
-    <div>
-      <h4>服務項目</h4>
-      <ul class="ft-ul">
-        <li>安全報告代製</li>
-        <li>培訓PPT製作</li>
-        <li>安全主任介紹</li>
-        <li>安全督導員介紹</li>
-        <li>管理表格供應</li>
-      </ul>
-    </div>
-    <div>
-      <h4>聯絡我們</h4>
-      <ul class="ft-ul">
-        <li>📱 微信：damon828_leong</li>
-        <li>💬 WhatsApp：+853 62862878</li>
-        <li><a href="#contact">填表聯絡</a></li>
-      </ul>
-      <div style="margin-top:1rem;padding:1rem;background:rgba(255,255,255,.08);border-radius:8px;text-align:center">
-        <div style="font-size:.8rem;color:rgba(255,255,255,.6);margin-bottom:.5rem">長按識別加微信</div>
-        <img src="wechat-qr.jpg" alt="微信二維碼" style="width:90px;height:90px;border-radius:6px;border:1px solid rgba(255,255,255,.2)">
-      </div>
-    </div>
-  </div>
-  <div class="ft-bot">© 2026 澳門建築安全服務 · 專業合規 · 誠信可靠</div>
+  <p>© 2026 <strong>澳門建築安全服務</strong> | 澳門建築安全管理專家<br>
+  WhatsApp: +853 62862878 | 微信: damon828_leong<br>
+  <span style="opacity:.6">依據：第2/2023號法律、第32/2023號行政法規、第8/2014號法律、第3/2014號法律</span></p>
 </footer>
 
 </body>
