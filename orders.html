@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>線上委託 | 澳門建築安全服務</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--p:#1a5f7a;--pd:#134a5f;--a:#f59e0b;--dk:#1e293b;--gr:#64748b;--lt:#f8fafc;--wh:#fff;--grn:#16a34a}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;color:var(--dk);line-height:1.7;background:var(--lt)}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);z-index:999;padding:.9rem 2rem;box-shadow:0 2px 16px rgba(0,0,0,.07)}
+.nav-in{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--p);font-weight:700;font-size:1.1rem}
+.logo-ic{width:38px;height:38px;background:linear-gradient(135deg,var(--p),var(--a));border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem}
+
+/* HERO */
+.hero{padding:7rem 2rem 3rem;text-align:center;background:linear-gradient(160deg,#e0f2fe 0%,#fff 60%)}
+.hero h1{font-size:clamp(2rem,5vw,2.8rem);font-weight:800;color:var(--dk);margin-bottom:.8rem}
+.hero p{font-size:1.1rem;color:var(--gr);max-width:600px;margin:0 auto}
+
+/* GRID */
+.container{max-width:1100px;margin:0 auto;padding:3rem 2rem}
+.section-title{font-size:1.8rem;font-weight:800;color:var(--dk);margin-bottom:1.5rem;text-align:center}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+.svc-card{background:#fff;border-radius:16px;padding:1.8rem;border:1.5px solid #e2e8f0;transition:all .3s;cursor:pointer;text-decoration:none;color:inherit}
+.svc-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.1);border-color:var(--p)}
+.svc-icon{font-size:2.5rem;margin-bottom:1rem}
+.svc-card h3{font-size:1.15rem;font-weight:700;color:var(--dk);margin-bottom:.5rem}
+.svc-card p{font-size:.88rem;color:var(--gr);margin-bottom:1rem}
+.svc-price{font-size:1.4rem;font-weight:800;color:var(--p)}
+.svc-tag{display:inline-block;background:linear-gradient(135deg,var(--p),var(--a));color:#fff;font-size:.7rem;font-weight:700;padding:.3rem .8rem;border-radius:20px;margin-bottom:.8rem}
+.svc-popular{background:linear-gradient(135deg,#f0f9ff,#e0f2fe);border-color:#38bdf8;position:relative}
+.svc-popular::before{content:"熱門";position:absolute;top:-10px;right:15px;background:var(--a);color:#fff;font-size:.7rem;font-weight:700;padding:.3rem .8rem;border-radius:20px}
+
+/* INFO */
+.info{background:#fff;max-width:800px;margin:2rem auto;padding:2rem;border-radius:16px;text-align:center}
+.info h3{font-size:1.2rem;color:var(--dk);margin-bottom:1rem}
+.info p{color:var(--gr);margin-bottom:.8rem}
+.info .steps{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem}
+.info .step{background:var(--lt);padding:1rem 1.5rem;border-radius:10px;font-size:.9rem;color:var(--dk)}
+
+/* CTA */
+.cta-section{padding:3rem 2rem;text-align:center}
+.cta-whatsapp{display:inline-flex;align-items:center;gap:.8rem;background:#25D366;color:#fff;padding:1rem 2rem;border-radius:50px;font-weight:700;text-decoration:none;font-size:1.1rem}
+.cta-whatsapp:hover{background:#20BD5A}
+
+/* FOOTER */
+footer{background:var(--dk);color:rgba(255,255,255,.6);padding:2rem;text-align:center;font-size:.82rem}
+footer strong{color:#fff}
+
+@media(max-width:768px){
+.services-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+<div class="nav-in">
+  <a href="index.html" class="logo">
+    <div class="logo-ic">🏗️</div>
+    <span>澳門建築安全服務</span>
+  </a>
+</div>
+</nav>
+
+<section class="hero">
+  <h1>📋 線上委託服務</h1>
+  <p>選擇您需要的服務，填寫需求表單，我們將在最短時間內為您完成</p>
+</section>
+
+<div class="container">
+  <div class="services-grid">
+    
+    <!-- 1. 安全巡查報告 -->
+    <a href="form-inspection.html" class="svc-card">
+      <div class="svc-tag">報告代製</div>
+      <div class="svc-icon">🔍</div>
+      <h3>安全巡查報告</h3>
+      <p>地盤巡查記錄、隱患整改追蹤，符合第32/2023號規範</p>
+      <div class="svc-price">MOP 200 <small>/份</small></div>
+    </a>
+
+    <!-- 2. 風險評估報告 -->
+    <a href="form-risk.html" class="svc-card svc-popular">
+      <div class="svc-tag">報告代製</div>
+      <div class="svc-icon">⚠️</div>
+      <h3>風險評估報告</h3>
+      <p>JSA分析、工作危害評估、管控措施制定</p>
+      <div class="svc-price">MOP 500 <small>/份</small></div>
+    </a>
+
+    <!-- 3. 事故調查報告 -->
+    <a href="form-accident.html" class="svc-card">
+      <div class="svc-tag">報告代製</div>
+      <div class="svc-icon">🚨</div>
+      <h3>事故調查報告</h3>
+      <p>事件經過分析、根本原因探究、改善建議編寫</p>
+      <div class="svc-price">MOP 400 <small>/份</small></div>
+    </a>
+
+    <!-- 4. 安全培訓PPT -->
+    <a href="form-training.html" class="svc-card">
+      <div class="svc-tag">報告代製</div>
+      <div class="svc-icon">🎓</div>
+      <h3>安全培訓PPT</h3>
+      <p>入職培訓、專項培訓教材，可加公司品牌</p>
+      <div class="svc-price">MOP 300 <small>/套起</small></div>
+    </a>
+
+    <!-- 5. 安全方案編寫 -->
+    <a href="form-plan.html" class="svc-card">
+      <div class="svc-tag">報告代製</div>
+      <div class="svc-icon">📝</div>
+      <h3>安全方案編寫</h3>
+      <p>高空作業、密閉空間、吊裝作業等專項方案</p>
+      <div class="svc-price">MOP 800 <small>/份起</small></div>
+    </a>
+
+    <!-- 6. 安全管理制度 -->
+    <a href="form-system.html" class="svc-card">
+      <div class="svc-tag">報告代製</div>
+      <div class="svc-icon">📑</div>
+      <h3>安全管理制度</h3>
+      <p>安全手冊、安全程序文件、應急預案</p>
+      <div class="svc-price">MOP 1,000 <small>/套起</small></div>
+    </a>
+
+    <!-- 7. 安全審核報告 -->
+    <a href="form-audit.html" class="svc-card svc-popular">
+      <div class="svc-tag">報告代製</div>
+      <div class="svc-icon">✅</div>
+      <h3>安全審核報告</h3>
+      <p>地盤安全狀況評估、整改建議報告</p>
+      <div class="svc-price">MOP 3,000 <small>/份</small></div>
+    </a>
+
+    <!-- 8. 其他文件 -->
+    <a href="form-other.html" class="svc-card">
+      <div class="svc-tag">報告代製</div>
+      <div class="svc-icon">📄</div>
+      <h3>其他文件</h3>
+      <p>安全標示圖、施工許可申請文件等，歡迎查詢</p>
+      <div class="svc-price">面議</div>
+    </a>
+
+  </div>
+</div>
+
+<div class="info">
+  <h3>📌 委託流程</h3>
+  <div class="steps">
+    <div class="step">1️⃣ 填寫表單</div>
+    <div class="step">2️⃣ WhatsApp確認報價</div>
+    <div class="step">3️⃣ 3個工作天內交付</div>
+    <div class="step">4️⃣ 滿意後付款</div>
+  </div>
+</div>
+
+<div class="cta-section">
+  <p style="color:var(--gr);margin-bottom:1rem">需要即時服務？直接聯絡我們：</p>
+  <a href="https://wa.me/85362862878" class="cta-whatsapp" target="_blank">
+    <span>📱</span> WhatsApp：+853 62862878
+  </a>
+</div>
+
+<footer>
+  <p>© 2026 <strong>澳門建築安全服務</strong><br>
+  WhatsApp: +853 62862878 | 微信: damon828_leong<br>
+  <span style="opacity:.6">依據：第2/2023號法律、第32/2023號行政法規</span></p>
+</footer>
+
+</body>
+</html>
