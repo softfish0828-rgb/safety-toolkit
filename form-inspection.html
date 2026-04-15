@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>委託：安全巡查報告 | 澳門建築安全服務</title>
+<!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--p:#1a5f7a;--pd:#134a5f;--a:#f59e0b;--dk:#1e293b;--gr:#64748b;--lt:#f8fafc;--wh:#fff;--err:#dc2626;--suc:#16a34a}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;color:var(--dk);line-height:1.7;background:var(--lt)}
+nav{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);z-index:999;padding:.9rem 2rem;box-shadow:0 2px 16px rgba(0,0,0,.07)}
+.nav-in{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--p);font-weight:700;font-size:1.1rem}
+.logo-ic{width:38px;height:38px;background:linear-gradient(135deg,var(--p),var(--a));border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem}
+.back-btn{display:inline-flex;align-items:center;gap:.5rem;color:var(--gr);text-decoration:none;font-size:.9rem;padding:.5rem 1rem;border-radius:8px;transition:all .2s}
+.back-btn:hover{background:var(--lt);color:var(--p)}
+
+.hero{padding:7rem 2rem 2rem;text-align:center;background:linear-gradient(160deg,#e0f2fe 0%,#fff 60%)}
+.hero h1{font-size:2rem;font-weight:800;color:var(--dk);margin-bottom:.5rem}
+.hero p{font-size:1rem;color:var(--gr)}
+.breadcrumb{background:#fff;padding:.8rem 2rem;font-size:.85rem;color:var(--gr)}
+.breadcrumb a{color:var(--p);text-decoration:none}
+
+.form-container{max-width:700px;margin:2rem auto;padding:0 2rem 4rem}
+.form-card{background:#fff;border-radius:20px;padding:2.5rem;box-shadow:0 4px 30px rgba(0,0,0,.08)}
+.form-section{margin-bottom:2rem}
+.form-section h2{font-size:1.1rem;font-weight:700;color:var(--dk);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--p);display:flex;align-items:center;gap:.5rem}
+.form-section h2 .icon{font-size:1.3rem}
+.form-group{margin-bottom:1.2rem}
+.form-group label{display:block;font-weight:600;color:var(--dk);margin-bottom:.4rem;font-size:.9rem}
+.form-group label .required{color:var(--err)}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:.8rem 1rem;border:1.5px solid #e2e8f0;border-radius:10px;font-size:.95rem;font-family:inherit;transition:border-color .2s;background:#fff}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--p)}
+.form-group textarea{min-height:100px;resize:vertical}
+.form-group .hint{font-size:.8rem;color:var(--gr);margin-top:.3rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:600px){.form-row{grid-template-columns:1fr}}
+
+.checkbox-group{display:flex;flex-wrap:wrap;gap:.8rem}
+.checkbox-item{display:flex;align-items:center;gap:.5rem;background:var(--lt);padding:.6rem 1rem;border-radius:8px;cursor:pointer;transition:all .2s}
+.checkbox-item:hover{background:#e0f2fe}
+.checkbox-item input{display:none}
+.checkbox-item.checked{background:var(--p);color:#fff}
+
+.btn-row{display:flex;gap:1rem;margin-top:2rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:1rem 2rem;border-radius:10px;font-weight:700;font-size:1rem;text-decoration:none;cursor:pointer;border:none;transition:all .2s;flex:1}
+.btn-primary{background:var(--p);color:#fff}
+.btn-primary:hover{background:var(--pd)}
+.btn-secondary{background:var(--lt);color:var(--dk);border:1.5px solid #e2e8f0}
+.btn-secondary:hover{background:#e2e8f0}
+
+.price-box{background:linear-gradient(135deg,var(--p),var(--pd));color:#fff;padding:1.5rem;border-radius:12px;text-align:center;margin-bottom:1.5rem}
+.price-box .label{font-size:.9rem;opacity:.9}
+.price-box .amount{font-size:2rem;font-weight:800}
+
+.order-id-box{background:linear-gradient(135deg,#fef3c7,#fde68a);border:2px solid var(--a);padding:1rem 1.5rem;border-radius:12px;margin-bottom:1.5rem;text-align:center;display:none}
+.order-id-box.show{display:block}
+.order-id-box .label{font-size:.85rem;color:#92400e;font-weight:600}
+.order-id-box .id{font-size:1.5rem;font-weight:800;color:#78350f;letter-spacing:2px}
+
+.success-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1000;align-items:center;justify-content:center}
+.success-modal.show{display:flex}
+.success-content{background:#fff;border-radius:20px;padding:3rem;text-align:center;max-width:450px;width:90%;animation:slideUp .3s}
+@keyframes slideUp{from{transform:translateY(30px);opacity:0}to{transform:translateY(0);opacity:1}}
+.success-icon{font-size:4rem;margin-bottom:1rem}
+.success-content h2{font-size:1.5rem;color:var(--dk);margin-bottom:.5rem}
+.success-content p{color:var(--gr);margin-bottom:1rem}
+
+.loading-overlay{display:none;position:fixed;inset:0;background:rgba(255,255,255,.9);z-index:2000;align-items:center;justify-content:center;flex-direction:column}
+.loading-overlay.show{display:flex}
+.spinner{width:50px;height:50px;border:4px solid #e2e8f0;border-top-color:var(--p);border-radius:50%;animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-overlay p{margin-top:1rem;color:var(--gr);font-weight:600}
+</style>
+</head>
+<body>
+
+<nav>
+<div class="nav-in">
+  <a href="index.html" class="logo">
+    <div class="logo-ic">🏗️</div>
+    <span>澳門建築安全服務</span>
+  </a>
+  <a href="orders.html" class="back-btn">← 返回委託首頁</a>
+</div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="index.html">主頁</a> / <a href="orders.html">線上委託</a> / 安全巡查報告
+</div>
+
+<section class="hero">
+  <h1>🔍 安全巡查報告</h1>
+  <p>填寫以下資料，我們將為您製定專業的巡查報告</p>
+</section>
+
+<div class="form-container">
+  <div class="form-card">
+    <div class="price-box">
+      <div class="label">標準收費</div>
+      <div class="amount">MOP 200 <small>/份</small></div>
+    </div>
+
+    <!-- 訂單編號 -->
+    <div class="order-id-box" id="orderIdBox">
+      <div class="label">您的訂單編號</div>
+      <div class="id" id="orderId">SIR-2026-XXXX</div>
+    </div>
+
+    <form id="orderForm">
+      <!-- 基本資訊 -->
+      <div class="form-section">
+        <h2><span class="icon">👤</span> 基本資訊</h2>
+        <div class="form-group">
+          <label>公司/工地名稱 <span class="required">*</span></label>
+          <input type="text" name="company" required placeholder="例如：ABC建築有限公司">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>聯絡人 <span class="required">*</span></label>
+            <input type="text" name="contact" required placeholder="負責人姓名">
+          </div>
+          <div class="form-group">
+            <label>聯絡電話 <span class="required">*</span></label>
+            <input type="tel" name="phone" required placeholder="+853 XXXX XXXX">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>電子郵箱 <span class="required">*</span></label>
+          <input type="email" name="email" required placeholder="用於接收報告">
+        </div>
+      </div>
+
+      <!-- 服務詳情 -->
+      <div class="form-section">
+        <h2><span class="icon">📋</span> 巡查詳情</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label>工地地址 <span class="required">*</span></label>
+            <input type="text" name="site_address" required placeholder="工地詳細地址">
+          </div>
+          <div class="form-group">
+            <label>巡查日期 <span class="required">*</span></label>
+            <input type="date" name="inspection_date" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>巡查類型 <span class="required">*</span></label>
+          <div class="checkbox-group">
+            <label class="checkbox-item"><input type="radio" name="inspection_type" value="例行巡查" required> <span>例行巡查</span></label>
+            <label class="checkbox-item"><input type="radio" name="inspection_type" value="專項巡查"> <span>專項巡查</span></label>
+            <label class="checkbox-item"><input type="radio" name="inspection_type" value="整改複查"> <span>整改複查</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>巡查範圍</label>
+          <div class="checkbox-group">
+            <label class="checkbox-item"><input type="checkbox" name="scope" value="結構安全"> <span>結構安全</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="scope" value="電氣安全"> <span>電氣安全</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="scope" value="消防安全"> <span>消防安全</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="scope" value="個人防護"> <span>個人防護</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="scope" value="棚架安全"> <span>棚架安全</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="scope" value="高空作業"> <span>高空作業</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>發現隱患數量</label>
+          <select name="hazard_count">
+            <option value="">請選擇</option>
+            <option value="無">無</option>
+            <option value="1-3項">1-3項</option>
+            <option value="4-10項">4-10項</option>
+            <option value="10項以上">10項以上</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>語言要求</label>
+          <div class="checkbox-group">
+            <label class="checkbox-item"><input type="checkbox" name="lang" value="中文" checked> <span>中文</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="lang" value="英文"> <span>英文</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="lang" value="中英雙語"> <span>中英雙語</span></label>
+          </div>
+        </div>
+      </div>
+
+      <!-- 交付要求 -->
+      <div class="form-section">
+        <h2><span class="icon">📅</span> 交付要求</h2>
+        <div class="form-group">
+          <label>期望交付日期</label>
+          <input type="date" name="delivery_date">
+          <div class="hint">一般 3 個工作天內完成，急件請另行說明</div>
+        </div>
+        <div class="form-group">
+          <label>其他要求 / 備註</label>
+          <textarea name="notes" placeholder="如有特殊要求，請在此說明..."></textarea>
+        </div>
+      </div>
+
+      <!-- 提交 -->
+      <div class="btn-row">
+        <button type="button" class="btn btn-secondary" onclick="history.back()">返回</button>
+        <button type="submit" class="btn btn-primary" id="submitBtn">📤 提交委託</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- 載入中 -->
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="spinner"></div>
+  <p>正在處理您的委託...</p>
+</div>
+
+<!-- 成功彈窗 -->
+<div class="success-modal" id="successModal">
+  <div class="success-content">
+    <div class="success-icon">✅</div>
+    <h2>委託已提交！</h2>
+    <p id="successMsg">我們已收到您的委託，將盡快處理。</p>
+    <div style="background:#f0fdf4;padding:1rem;border-radius:10px;margin:1rem 0">
+      <div style="font-size:.8rem;color:#166534;font-weight:600">訂單編號</div>
+      <div style="font-size:1.3rem;font-weight:800;color:#15803d" id="successOrderId">SIR-XXXX</div>
+    </div>
+    <p style="font-size:.9rem;color:var(--gr)">WhatsApp將自動開啟，請發送訊息確認</p>
+    <a href="orders.html" class="btn btn-primary" style="display:inline-flex;margin-top:1rem;flex:none">返回委託首頁</a>
+  </div>
+</div>
+
+<script>
+// ======== 阿康系統配置 ========
+// 請替換為你的 EmailJS 設定（https://emailjs.com）
+// 如果未設定，系統將只使用 WhatsApp 通知
+const EMAILJS_CONFIG = {
+  serviceID: '',      // 例: 'service_xxxxx'
+  templateID: '',     // 例: 'template_xxxxx'
+  publicKey: ''       // 例: 'xxxxxxxxxxxxx'
+};
+
+// ======== 訂單編號生成 ========
+function generateOrderId() {
+  const prefix = 'SIR';
+  const year = new Date().getFullYear();
+  const random = Math.floor(1000 + Math.random() * 9000);
+  return `${prefix}-${year}-${random}`;
+}
+
+// ======== 初始化 EmailJS ========
+if (EMAILJS_CONFIG.serviceID && EMAILJS_CONFIG.publicKey) {
+  emailjs.init(EMAILJS_CONFIG.publicKey);
+}
+
+// ======== 點擊選擇效果 ========
+document.querySelectorAll('.checkbox-item').forEach(item => {
+  item.addEventListener('click', function(e) {
+    if (e.target.tagName === 'INPUT') return;
+    const input = this.querySelector('input');
+    if (input.type === 'radio') {
+      document.querySelectorAll(`[name="${input.name}"]`).forEach(r => r.closest('.checkbox-item').classList.remove('checked'));
+    }
+    input.checked = !input.checked;
+    this.classList.toggle('checked', input.checked);
+  });
+});
+
+// ======== 處理 checkbox 初始狀態 ========
+document.querySelectorAll('.checkbox-item input[type="checkbox"]').forEach(input => {
+  if (input.checked) input.closest('.checkbox-item').classList.add('checked');
+});
+
+// ======== 表單提交 ========
+document.getElementById('orderForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  
+  const orderId = generateOrderId();
+  const submitBtn = document.getElementById('submitBtn');
+  
+  // 顯示訂單編號
+  document.getElementById('orderId').textContent = orderId;
+  document.getElementById('orderIdBox').classList.add('show');
+  
+  // 收集表單數據
+  const formData = new FormData(this);
+  const data = {};
+  formData.forEach((value, key) => {
+    if (data[key]) {
+      if (Array.isArray(data[key])) data[key].push(value);
+      else data[key] = [data[key], value];
+    } else data[key] = value;
+  });
+  
+  // 處理多選值
+  const scope = Array.isArray(data.scope) ? data.scope.join('、') : (data.scope || '未指定');
+  const lang = Array.isArray(data.lang) ? data.lang.join('、') : (data.lang || '中文');
+  
+  // ======== 構建 WhatsApp 訊息（供阿康處理） ========
+  const whatsappMsg = `🔔 新訂單通知
+
+━━━━━━━━━━━━━━━━━━━━
+📋 訂單編號：${orderId}
+📌 服務類型：安全巡查報告
+━━━━━━━━━━━━━━━━━━━━
+
+👤 客戶資訊
+├─ 公司：${data.company}
+├─ 聯絡人：${data.contact}
+├─ 電話：${data.phone}
+└─ 電郵：${data.email}
+
+🔍 巡查詳情
+├─ 工地：${data.site_address}
+├─ 巡查日期：${data.inspection_date}
+├─ 巡查類型：${data.inspection_type}
+├─ 巡查範圍：${scope}
+├─ 隱患數量：${data.hazard_count || '未說明'}
+└─ 語言：${lang}
+
+📅 交付要求
+├─ 期望日期：${data.delivery_date || '盡快'}
+└─ 備註：${data.notes || '無'}
+
+━━━━━━━━━━━━━━━━━━━━
+💰 報價：MOP 200（標準）/ 視乎複雜程度
+⏰ 請及時確認並處理`;
+
+  // ======== 發送 Email 通知（如果已配置） ========
+  if (EMAILJS_CONFIG.serviceID && EMAILJS_CONFIG.templateID) {
+    try {
+      await emailjs.send(EMAILJS_CONFIG.serviceID, EMAILJS_CONFIG.templateID, {
+        order_id: orderId,
+        service_type: '安全巡查報告',
+        company: data.company,
+        contact: data.contact,
+        phone: data.phone,
+        email: data.email,
+        site_address: data.site_address,
+        inspection_date: data.inspection_date,
+        inspection_type: data.inspection_type,
+        scope: scope,
+        hazard_count: data.hazard_count || '未說明',
+        lang: lang,
+        delivery_date: data.delivery_date || '盡快',
+        notes: data.notes || '無',
+        price: 'MOP 200',
+        message: whatsappMsg
+      });
+      document.getElementById('successMsg').textContent = '我們已收到您的委託，阿康將盡快處理！';
+    } catch (error) {
+      console.log('Email 發送失敗，使用 WhatsApp 通知');
+      document.getElementById('successMsg').textContent = '我們已收到您的委託，將盡快聯絡您！';
+    }
+  } else {
+    document.getElementById('successMsg').textContent = '我們已收到您的委託，將盡快聯絡您！';
+  }
+  
+  // ======== 保存訂單到本地存儲（備份） ========
+  const orders = JSON.parse(localStorage.getItem('safety_orders') || '[]');
+  orders.push({
+    orderId,
+    service: '安全巡查報告',
+    price: 'MOP 200',
+    company: data.company,
+    contact: data.contact,
+    phone: data.phone,
+    email: data.email,
+    site_address: data.site_address,
+    inspection_date: data.inspection_date,
+    inspection_type: data.inspection_type,
+    scope,
+    hazard_count: data.hazard_count,
+    lang,
+    delivery_date: data.delivery_date,
+    notes: data.notes,
+    status: 'pending',
+    createdAt: new Date().toISOString()
+  });
+  localStorage.setItem('safety_orders', JSON.stringify(orders));
+  
+  // 顯示成功彈窗
+  document.getElementById('successOrderId').textContent = orderId;
+  document.getElementById('successModal').classList.add('show');
+  
+  // 自動開啟 WhatsApp
+  const waUrl = `https://wa.me/85362862878?text=${encodeURIComponent(whatsappMsg)}`;
+  window.open(waUrl, '_blank');
+});
+</script>
+
+</body>
+</html>

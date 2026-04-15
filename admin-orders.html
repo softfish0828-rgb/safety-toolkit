@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>訂單管理 | 澳門建築安全服務</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--p:#1a5f7a;--pd:#134a5f;--a:#f59e0b;--dk:#1e293b;--gr:#64748b;--lt:#f8fafc;--wh:#fff;--err:#dc2626;--suc:#16a34a}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;color:var(--dk);line-height:1.7;background:var(--lt)}
+nav{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);z-index:999;padding:.9rem 2rem;box-shadow:0 2px 16px rgba(0,0,0,.07)}
+.nav-in{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--p);font-weight:700;font-size:1.1rem}
+.logo-ic{width:38px;height:38px;background:linear-gradient(135deg,var(--p),var(--a));border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem}
+.back-btn{display:inline-flex;align-items:center;gap:.5rem;color:var(--gr);text-decoration:none;font-size:.9rem;padding:.5rem 1rem;border-radius:8px;transition:all .2s}
+.back-btn:hover{background:var(--lt);color:var(--p)}
+
+.hero{padding:7rem 2rem 2rem;text-align:center;background:linear-gradient(160deg,#e0f2fe 0%,#fff 60%)}
+.hero h1{font-size:2rem;font-weight:800;color:var(--dk);margin-bottom:.5rem}
+.hero p{font-size:1rem;color:var(--gr)}
+
+.container{max-width:1200px;margin:2rem auto;padding:0 2rem 4rem}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2rem}
+@media(max-width:768px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stat-card{background:#fff;padding:1.5rem;border-radius:16px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.stat-card .num{font-size:2rem;font-weight:800;color:var(--p)}
+.stat-card .label{font-size:.85rem;color:var(--gr);margin-top:.3rem}
+
+.filter-bar{display:flex;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap}
+.filter-bar select,.filter-bar input{padding:.8rem 1.2rem;border:1.5px solid #e2e8f0;border-radius:10px;font-size:.95rem;background:#fff}
+.search-btn{padding:.8rem 1.5rem;background:var(--p);color:#fff;border:none;border-radius:10px;font-weight:600;cursor:pointer}
+.search-btn:hover{background:var(--pd)}
+.export-btn{padding:.8rem 1.5rem;background:var(--suc);color:#fff;border:none;border-radius:10px;font-weight:600;cursor:pointer}
+
+.orders-list{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.08)}
+.order-item{padding:1.5rem;border-bottom:1px solid #f1f5f9;transition:background .2s}
+.order-item:hover{background:#f8fafc}
+.order-item:last-child{border-bottom:none}
+.order-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:.5rem}
+.order-id{font-weight:700;color:var(--p);font-size:.95rem}
+.order-time{font-size:.8rem;color:var(--gr)}
+.order-status{padding:.4rem 1rem;border-radius:20px;font-size:.8rem;font-weight:600}
+.status-pending{background:#fef3c7;color:#92400e}
+.status-processing{background:#dbeafe;color:#1e40af}
+.status-completed{background:#dcfce7;color:#166534}
+.order-service{font-size:1.1rem;font-weight:700;margin-bottom:.5rem}
+.order-details{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin-top:1rem;padding-top:1rem;border-top:1px dashed #e2e8f0}
+.detail-item .label{font-size:.75rem;color:var(--gr);margin-bottom:.2rem}
+.detail-item .value{font-weight:600;font-size:.9rem}
+.order-actions{display:flex;gap:.5rem;margin-top:1rem;flex-wrap:wrap}
+.action-btn{padding:.5rem 1rem;border-radius:8px;font-size:.85rem;font-weight:600;cursor:pointer;border:none;transition:all .2s}
+.btn-view{background:var(--lt);color:var(--dk)}
+.btn-whatsapp,.btn-complete{background:#dcfce7;color:#166534}
+
+.empty-state{text-align:center;padding:4rem 2rem;color:var(--gr)}
+.empty-icon{font-size:4rem;margin-bottom:1rem}
+
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1000;align-items:center;justify-content:center;padding:1rem}
+.modal.show{display:flex}
+.modal-content{background:#fff;border-radius:20px;padding:2rem;max-width:600px;width:100%;max-height:80vh;overflow-y:auto}
+.modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem}
+.modal-header h2{font-size:1.3rem}
+.modal-close{background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--gr)}
+.detail-row{display:flex;border-bottom:1px solid #f1f5f9;padding:.5rem 0}
+.detail-row .label{min-width:100px;color:var(--gr);flex-shrink:0}
+.detail-row .value{font-weight:600}
+.admin-note{background:#fef9c3;padding:1rem;border-radius:10px;margin-top:1rem;font-size:.9rem}
+</style>
+</head>
+<body>
+
+<nav>
+<div class="nav-in">
+  <a href="index.html" class="logo">
+    <div class="logo-ic">🏗️</div>
+    <span>澳門建築安全服務</span>
+  </a>
+  <a href="index.html" class="back-btn">← 返回首頁</a>
+</div>
+</nav>
+
+<section class="hero">
+  <h1>📊 訂單管理</h1>
+  <p>查看和管理所有委託訂單</p>
+</section>
+
+<div class="container">
+  <div class="stats">
+    <div class="stat-card"><div class="num" id="totalOrders">0</div><div class="label">總訂單</div></div>
+    <div class="stat-card"><div class="num" id="pendingOrders">0</div><div class="label">待處理</div></div>
+    <div class="stat-card"><div class="num" id="processingOrders">0</div><div class="label">處理中</div></div>
+    <div class="stat-card"><div class="num" id="completedOrders">0</div><div class="label">已完成</div></div>
+  </div>
+
+  <div class="filter-bar">
+    <select id="filterStatus">
+      <option value="">所有狀態</option>
+      <option value="pending">待處理</option>
+      <option value="processing">處理中</option>
+      <option value="completed">已完成</option>
+    </select>
+    <select id="filterService">
+      <option value="">所有服務</option>
+      <option value="安全巡查報告">安全巡查報告</option>
+      <option value="風險評估報告">風險評估報告</option>
+      <option value="事故調查報告">事故調查報告</option>
+      <option value="安全培訓PPT">安全培訓PPT</option>
+      <option value="安全方案編寫">安全方案編寫</option>
+      <option value="安全管理制度">安全管理制度</option>
+      <option value="安全審核報告">安全審核報告</option>
+      <option value="其他文件">其他文件</option>
+    </select>
+    <input type="text" id="searchOrderId" placeholder="搜尋訂單編號...">
+    <button class="search-btn" onclick="renderOrders()">🔍 搜尋</button>
+    <button class="export-btn" onclick="exportOrders()">📤 導出CSV</button>
+  </div>
+
+  <div class="orders-list" id="ordersList">
+    <div class="empty-state">
+      <div class="empty-icon">📋</div>
+      <p>暫時沒有訂單</p>
+      <p style="font-size:.85rem;margin-top:.5rem">當客戶提交委託後，訂單會顯示在這裡</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="orderModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>📋 訂單詳情</h2>
+      <button class="modal-close" onclick="closeModal()">×</button>
+    </div>
+    <div class="detail-grid" id="modalContent"></div>
+    <div class="admin-note">
+      <strong>💡 阿康提示：</strong>收到訂單後，直接在阿康輸入訂單編號，即可快速生成報告。例：「訂單 SIR-2026-1234，安全巡查報告」
+    </div>
+  </div>
+</div>
+
+<script>
+function loadOrders(){return JSON.parse(localStorage.getItem('safety_orders')||'[]')}
+function saveOrders(orders){localStorage.setItem('safety_orders',JSON.stringify(orders))}
+
+function updateStats(){
+  const orders=loadOrders();
+  document.getElementById('totalOrders').textContent=orders.length;
+  document.getElementById('pendingOrders').textContent=orders.filter(o=>o.status==='pending').length;
+  document.getElementById('processingOrders').textContent=orders.filter(o=>o.status==='processing').length;
+  document.getElementById('completedOrders').textContent=orders.filter(o=>o.status==='completed').length;
+}
+
+function formatDate(iso){
+  const d=new Date(iso);
+  return`${d.getFullYear()}/${String(d.getMonth()+1).padStart(2,'0')}/${String(d.getDate()).padStart(2,'0')} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
+}
+
+function renderOrders(){
+  const orders=loadOrders();
+  const sf=document.getElementById('filterStatus').value;
+  const ss=document.getElementById('filterService').value;
+  const sid=document.getElementById('searchOrderId').value.toLowerCase();
+  const filtered=orders.filter(o=>{
+    if(sf&&o.status!==sf)return false;
+    if(ss&&o.service!==ss)return false;
+    if(sid&&!o.orderId.toLowerCase().includes(sid))return false;
+    return true;
+  });
+  if(filtered.length===0){
+    document.getElementById('ordersList').innerHTML='<div class="empty-state"><div class="empty-icon">🔍</div><p>找不到符合條件的訂單</p></div>';
+    return;
+  }
+  const st={pending:'待處理',processing:'處理中',completed:'已完成'};
+  const sc={pending:'status-pending',processing:'status-processing',completed:'status-completed'};
+  document.getElementById('ordersList').innerHTML=filtered.map(o=>`
+    <div class="order-item">
+      <div class="order-header">
+        <span class="order-id">${o.orderId}</span>
+        <span class="order-status ${sc[o.status]||'status-pending'}">${st[o.status]||'待處理'}</span>
+        <span class="order-time">${formatDate(o.createdAt)}</span>
+      </div>
+      <div class="order-service">${o.service}</div>
+      <div class="order-company">🏢 ${o.company} ｜ 👤 ${o.contact} ｜ 📞 ${o.phone}</div>
+      <div class="order-details">
+        <div class="detail-item"><div class="label">報價</div><div class="value">${o.price}</div></div>
+        <div class="detail-item"><div class="label">工地</div><div class="value">${o.site_address||'-'}</div></div>
+        <div class="detail-item"><div class="label">期望日期</div><div class="value">${o.delivery_date||'盡快'}</div></div>
+        <div class="detail-item"><div class="label">客戶電郵</div><div class="value">${o.email}</div></div>
+      </div>
+      <div class="order-actions">
+        <button class="action-btn btn-view" onclick="viewOrder('${o.orderId}')">📋 詳情</button>
+        <button class="action-btn btn-whatsapp" onclick="contactCustomer('${o.orderId}')">📱 WhatsApp</button>
+        <button class="action-btn btn-complete" onclick="completeOrder('${o.orderId}')">✅ 完成</button>
+      </div>
+    </div>
+  `).join('');
+  updateStats();
+}
+
+function viewOrder(orderId){
+  const orders=loadOrders();
+  const o=orders.find(x=>x.orderId===orderId);
+  if(!o)return;
+  const fields=[
+    ['訂單編號',o.orderId],['服務類型',o.service],['報價',o.price],
+    ['公司名稱',o.company],['聯絡人',o.contact],['電話',o.phone],['電郵',o.email],
+    ['工地地址',o.site_address||'-'],['巡查日期',o.inspection_date||'-'],
+    ['巡查類型',o.inspection_type||'-'],['巡查範圍',o.scope||'-'],
+    ['語言要求',o.lang||'-'],['期望交付',o.delivery_date||'盡快'],
+    ['備註',o.notes||'無'],['狀態',o.status==='pending'?'待處理':o.status==='processing'?'處理中':'已完成'],
+    ['提交時間',formatDate(o.createdAt)]
+  ];
+  document.getElementById('modalContent').innerHTML=fields.map(([l,v])=>`<div class="detail-row"><div class="label">${l}</div><div class="value">${v}</div></div>`).join('');
+  document.getElementById('orderModal').classList.add('show');
+}
+function closeModal(){document.getElementById('orderModal').classList.remove('show')}
+
+function contactCustomer(orderId){
+  const orders=loadOrders();
+  const o=orders.find(x=>x.orderId===orderId);
+  if(!o)return;
+  const msg=`您好，收到您的委託 ${o.orderId}（${o.service}）。我們將盡快為您處理，預計完成時間：${o.delivery_date||'3個工作天內'}。如有問題請回覆。澳門建築安全服務 📱 +853 62862878`;
+  window.open(`https://wa.me/${o.phone.replace(/[^0-9]/g,'')}?text=${encodeURIComponent(msg)}`,'_blank');
+}
+
+function completeOrder(orderId){
+  const orders=loadOrders();
+  const idx=orders.findIndex(o=>o.orderId===orderId);
+  if(idx===-1)return;
+  orders[idx].status='completed';
+  orders[idx].completedAt=new Date().toISOString();
+  saveOrders(orders);
+  alert(`訂單 ${orderId} 已標記為完成！`);
+  renderOrders();
+}
+
+function exportOrders(){
+  const orders=loadOrders();
+  if(orders.length===0){alert('暫無訂單可導出');return;}
+  const csv=['訂單編號,服務,報價,公司,聯絡人,電話,電郵,工地,巡查日期,巡查類型,語言,期望交付,備註,狀態,提交時間',
+    ...orders.map(o=>[o.orderId,o.service,o.price,o.company,o.contact,o.phone,o.email,
+      o.site_address||'',o.inspection_date||'',o.inspection_type||'',o.lang||'',
+      o.delivery_date||'',o.notes||'',o.status,formatDate(o.createdAt)].join(','))].join('\n');
+  const b=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8'});
+  const l=document.createElement('a');l.href=URL.createObjectURL(b);
+  l.download=`orders_${new Date().toISOString().slice(0,10)}.csv`;l.click();
+}
+
+document.addEventListener('DOMContentLoaded',renderOrders);
+document.getElementById('orderModal').addEventListener('click',function(e){if(e.target===this)closeModal()});
+</script>
+
+</body>
+</html>
