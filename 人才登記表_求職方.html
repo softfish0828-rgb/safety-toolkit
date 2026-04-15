@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>澳門建築安全人才求職登記 | 澳門建築安全服務</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'PingFang SC','Microsoft YaHei',sans-serif; background: #f0f4f8; color: #1e293b; line-height: 1.7; }
+  .container { max-width: 680px; margin: 40px auto; background: #fff; border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,.08); overflow: hidden; }
+
+  .header { background: linear-gradient(135deg, #1a5f7a, #16a34a); padding: 32px 40px; color: #fff; }
+  .header .tag { font-size: .8rem; letter-spacing: 2px; text-transform: uppercase; opacity: .85; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 6px; }
+  .header p { font-size: .9rem; opacity: .9; }
+  .header .contact-bar { margin-top: 14px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .header .contact-chip { background: rgba(255,255,255,.2); border-radius: 20px; padding: 4px 14px; font-size: .82rem; }
+
+  .body { padding: 32px 40px; }
+  .section { margin-bottom: 28px; }
+  .section-title { font-size: .78rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #1a5f7a; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0; }
+
+  .form-row { margin-bottom: 16px; }
+  .form-row label { display: block; font-size: .88rem; font-weight: 600; color: #334155; margin-bottom: 6px; }
+  .form-row label .req { color: #f59e0b; margin-left: 2px; }
+
+  input[type="text"], input[type="tel"], input[type="email"], input[type="number"],
+  input[type="date"], select, textarea {
+    width: 100%; padding: 10px 14px; border: 1.5px solid #cbd5e1; border-radius: 8px;
+    font-size: .9rem; font-family: inherit; background: #f8fafc;
+    transition: border-color .2s, box-shadow .2s; outline: none;
+    color: #1e293b;
+  }
+  input:focus, select:focus, textarea:focus {
+    border-color: #1a5f7a; box-shadow: 0 0 0 3px rgba(26,95,122,.12);
+    background: #fff;
+  }
+  textarea { resize: vertical; min-height: 80px; }
+  select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748b' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; cursor: pointer; }
+
+  .col-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .col-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+
+  .radio-group { display: flex; gap: 20px; flex-wrap: wrap; }
+  .radio-item, .checkbox-item { display: flex; align-items: center; gap: 6px; cursor: pointer; font-size: .88rem; }
+  input[type="radio"], input[type="checkbox"] { width: 16px; height: 16px; accent-color: #1a5f7a; cursor: pointer; }
+
+  .submit-section { background: #f8fafc; margin: 0 -40px -32px; padding: 24px 40px; border-top: 1px solid #e2e8f0; }
+  .btn { display: inline-block; background: linear-gradient(135deg, #1a5f7a, #134a5f); color: #fff; border: none; padding: 14px 40px; border-radius: 10px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: transform .15s, box-shadow .15s; font-family: inherit; }
+  .btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(26,95,122,.3); }
+  .btn:active { transform: translateY(0); }
+  .btn-secondary { background: #fff; color: #1a5f7a; border: 2px solid #1a5f7a; margin-left: 12px; }
+  .note { font-size: .8rem; color: #64748b; margin-top: 10px; }
+  .note a { color: #1a5f7a; }
+
+  .highlight-box { background: linear-gradient(135deg, #f0fdf4, #dcfce7); border: 1px solid #16a34a; border-radius: 10px; padding: 16px 20px; margin-bottom: 24px; }
+  .highlight-box h3 { font-size: .95rem; color: #15803d; margin-bottom: 6px; }
+  .highlight-box p { font-size: .85rem; color: #166534; }
+
+  .footer { text-align: center; padding: 20px; font-size: .78rem; color: #94a3b8; border-top: 1px solid #e2e8f0; }
+
+  @media (max-width: 600px) {
+    .container { margin: 0; border-radius: 0; }
+    .header, .body, .submit-section { padding: 24px 20px; }
+    .col-2 { grid-template-columns: 1fr; }
+    .col-3 { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="tag">JOB SEEKER REGISTRATION</div>
+    <h1>澳門建築安全人才求職登記</h1>
+    <p>填寫後，我們將為您匹對適合的工作機會</p>
+    <div class="contact-bar">
+      <span class="contact-chip">WhatsApp: +853 62862878</span>
+      <span class="contact-chip">微信: damon828_leong</span>
+    </div>
+  </div>
+
+  <form class="body" id="jobseekerForm" action="#" method="post">
+
+    <!-- 服務說明 -->
+    <div class="highlight-box">
+      <h3>我們如何幫您？</h3>
+      <p>我們與澳門多間建築公司及承建商保持長期合作關係，可根據您的資歷、所在地點及期望薪資，快速配對適合的地盤安全主任或督導員職位。成功入職才收取費用（MOP 1,000-2,000）。</p>
+    </div>
+
+    <!-- SECTION 1: 個人資料 -->
+    <div class="section">
+      <div class="section-title">一、個人資料</div>
+
+      <div class="form-row">
+        <label>姓名（中文或英文）<span class="req">*</span></label>
+        <input type="text" name="full_name" placeholder="請填寫真實姓名" required>
+      </div>
+
+      <div class="col-2">
+        <div class="form-row">
+          <label>聯絡電話 <span class="req">*</span></label>
+          <input type="tel" name="phone" placeholder="+853 / +86 / 其他" required>
+        </div>
+        <div class="form-row">
+          <label>電郵地址</label>
+          <input type="email" name="email" placeholder="可選">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label>微信 / WhatsApp <span class="req">*</span></label>
+        <input type="text" name="wechat" placeholder="主要聯絡方式，請填寫" required>
+      </div>
+
+      <div class="col-3">
+        <div class="form-row">
+          <label>年齡範圍</label>
+          <select name="age_range">
+            <option value="">請選擇</option>
+            <option value="25以下">25以下</option>
+            <option value="25-35">25-35</option>
+            <option value="35-45">35-45</option>
+            <option value="45-55">45-55</option>
+            <option value="55以上">55以上</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label>居住地</label>
+          <select name="residence">
+            <option value="">請選擇</option>
+            <option value="澳門">澳門</option>
+            <option value="珠海">珠海</option>
+            <option value="中山">中山</option>
+            <option value="其他內地">其他內地</option>
+            <option value="香港">香港</option>
+            <option value="其他">其他</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label>性別</label>
+          <select name="gender">
+            <option value="">請選擇</option>
+            <option value="男">男</option>
+            <option value="女">女</option>
+            <option value="不便透露">不便透露</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: 專業背景 -->
+    <div class="section">
+      <div class="section-title">二、專業背景</div>
+
+      <div class="form-row">
+        <label>現時/最近職位 <span class="req">*</span></label>
+        <input type="text" name="current_position" placeholder="例如：地盤安全主任 / 安全督導員 / 安全員" required>
+      </div>
+
+      <div class="form-row">
+        <label>職位類型 <span class="req">*</span></label>
+        <div class="radio-group">
+          <label class="radio-item"><input type="radio" name="role_type" value="安全主任" required> 安全主任</label>
+          <label class="radio-item"><input type="radio" name="role_type" value="安全督導員"> 安全督導員</label>
+          <label class="radio-item"><input type="radio" name="role_type" value="安全協調員"> 安全協調員</label>
+          <label class="radio-item"><input type="radio" name="role_type" value="其他"> 其他</label>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label>工作經驗年資 <span class="req">*</span></label>
+        <select name="experience" required>
+          <option value="">請選擇</option>
+          <option value="1年以下">1年以下</option>
+          <option value="1-3年">1-3年</option>
+          <option value="3-5年">3-5年</option>
+          <option value="5-10年">5-10年</option>
+          <option value="10年以上">10年以上</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label>持有專業資格（可多選）</label>
+        <div class="radio-group" style="flex-direction:column;gap:8px;">
+          <label class="checkbox-item"><input type="checkbox" name="cert_osha" value="yes"> 澳門建築業職安卡（OSHA Card）</label>
+          <label class="checkbox-item"><input type="checkbox" name="cert_audit" value="yes"> 安全審核員資格</label>
+          <label class="checkbox-item"><input type="checkbox" name="cert_firstaid" value="yes"> 急救證書</label>
+          <label class="checkbox-item"><input type="checkbox" name="cert_nebosh" value="yes"> NEBOSH / IOSH 國際安全證書</label>
+          <label class="checkbox-item"><input type="checkbox" name="cert_cshk" value="yes"> 香港安全主任牌照</label>
+          <label class="checkbox-item"><input type="checkbox" name="cert_none" value="yes"> 暫未持有專業資格（但有興趣）</label>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label>語言能力（可多選）</label>
+        <div class="radio-group">
+          <label class="checkbox-item"><input type="checkbox" name="lang_cn" value="yes" checked> 中文（廣東話）</label>
+          <label class="checkbox-item"><input type="checkbox" name="lang_pt" value="yes"> 葡萄牙語</label>
+          <label class="checkbox-item"><input type="checkbox" name="lang_en" value="yes"> 英語</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 3: 求職期望 -->
+    <div class="section">
+      <div class="section-title">三、求職期望</div>
+
+      <div class="form-row">
+        <label>工作地點偏好</label>
+        <div class="radio-group">
+          <label class="checkbox-item"><input type="checkbox" name="pref_macau" value="yes" checked> 澳門</label>
+          <label class="checkbox-item"><input type="checkbox" name="pref_hengqin" value="yes"> 橫琴</label>
+          <label class="checkbox-item"><input type="checkbox" name="pref_remote" value="yes"> 遙距/線上</label>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label>工作性質偏好</label>
+        <div class="radio-group">
+          <label class="checkbox-item"><input type="checkbox" name="pref_fulltime" value="yes" checked> 全職</label>
+          <label class="checkbox-item"><input type="checkbox" name="pref_parttime" value="yes"> 兼職</label>
+          <label class="checkbox-item"><input type="checkbox" name="pref_contract" value="yes"> 臨時/短期</label>
+          <label class="checkbox-item"><input type="checkbox" name="pref_consult" value="yes"> 顧問/合作</label>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label>期望月薪（MOP）<span class="req">*</span></label>
+        <select name="expected_salary" required>
+          <option value="">請選擇</option>
+          <option value="15,000-20,000">15,000 - 20,000</option>
+          <option value="20,000-25,000">20,000 - 25,000</option>
+          <option value="25,000-30,000">25,000 - 30,000</option>
+          <option value="30,000-40,000">30,000 - 40,000</option>
+          <option value="40,000-50,000">40,000 - 50,000</option>
+          <option value="50,000+">50,000+</option>
+          <option value="面議">面議</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label>最快可開始工作時間</label>
+        <input type="text" name="available_from" placeholder="例如：隨時 / 2026年5月 / 需一個月通知期">
+      </div>
+
+      <div class="form-row">
+        <label>其他期望或補充說明</label>
+        <textarea name="extra" placeholder="例如：希望在氹仔區工作、接受偶爾橫琴出差、需要有在場地盤經驗等"></textarea>
+      </div>
+    </div>
+
+    <!-- SECTION 4: 附加 -->
+    <div class="section">
+      <div class="section-title">四、上傳簡歷（如有）</div>
+      <div class="form-row">
+        <label>上傳 CV / 履歷表（PDF 或圖片）</label>
+        <input type="file" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" style="background:#fff;padding:8px;">
+        <p style="font-size:.8rem;color:#64748b;margin-top:6px;">支援格式：PDF、JPG、PNG、DOC、DOCX。如無法上傳，可直接 WhatsApp 發送。</p>
+      </div>
+    </div>
+
+    <div class="submit-section">
+      <button type="submit" class="btn">提交求職登記</button>
+      <button type="reset" class="btn btn-secondary">重置</button>
+      <p class="note">提交後，我們將在48小時內與您聯絡。或直接 WhatsApp：<a href="https://wa.me/85362862878">+853 62862878</a></p>
+    </div>
+
+  </form>
+
+  <div class="footer">
+    澳門建築安全服務 | 澳門建築安全管理專家<br>
+    WhatsApp: +853 62862878 | 微信: damon828_leong
+  </div>
+
+</div>
+<script>
+  document.getElementById('jobseekerForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const fd = new FormData(this);
+    let msg = '【求職登記】\n\n';
+    for (let [k,v] of fd.entries()) {
+      if (v) msg += k + ': ' + v + '\n';
+    }
+    const encoded = encodeURIComponent(msg);
+    const waUrl = 'https://wa.me/85362862878?text=' + encoded;
+    if (confirm('即將打開 WhatsApp 提交您的求職登記，確認繼續？')) {
+      window.open(waUrl, '_blank');
+    }
+  });
+</script>
+</body>
+</html>
